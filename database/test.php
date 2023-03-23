@@ -1,21 +1,22 @@
 <?php
-$url = 'https://cosc360.ok.ubc.ca/phpmyadmin'; // URL to access
-$username = '23286388'; // Replace with your username
-$password = '23286388'; // Replace with your password
+/*mysqli mysqli_connect (
+[ string $host = ini_get("mysqli.default_host") 
+[, string $username = ini_get("mysqli.default_user") 
+[, string $passwd = ini_get("mysqli.default_pw") [, string$dbname = "" 
+[, int $port =ini_get("mysqli.default_port") 
+[, string $socket = ini_get("mysqli.default_socket") ]]]]]] )
+*/
+$servername = "localhost";
+$username = "23286388";
+$password = "23286388";
+$dbname = "db_23286388";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_USERPWD, "$username:$password"); // Set username and password
-curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Ignore SSL verification (not recommended)
-$response = curl_exec($ch);
-
-if ($response === false) {
-  echo 'Error: ' . curl_error($ch);
-} else {
-  echo $response;
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
+echo "Connected successfully";
 
-curl_close($ch);
 ?>
