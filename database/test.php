@@ -1,7 +1,7 @@
 <?php
 $url = 'https://cosc360.ok.ubc.ca/phpmyadmin'; // URL to access
-$username = 'your_username'; // Replace with your username
-$password = 'your_password'; // Replace with your password
+$username = '23286388'; // Replace with your username
+$password = '23286388'; // Replace with your password
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
